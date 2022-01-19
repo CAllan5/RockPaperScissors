@@ -12,4 +12,11 @@ function getCompChoice(){
     return compChoice;
 }
 
-console.log(getCompChoice());
+function getPlayerChoice(input){
+    input = prompt('Choose Rock, Paper or Scissors.');
+    playerChoice = input.toLowerCase();
+
+    return playerChoice;
+}
+
+console.log(getPlayerChoice());
