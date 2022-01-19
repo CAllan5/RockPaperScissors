@@ -19,4 +19,23 @@ function getPlayerChoice(input){
     return playerChoice;
 }
 
-console.log(getPlayerChoice());
+function getRoundWinner(compInput, playerInput){
+    compInput = getCompChoice();
+    playerInput = getPlayerChoice();
+    winner = '';
+
+    if (compInput === playerInput){
+        winner = 'Tie';
+    }else if(compInput === 'rock' && playerInput === 'scissors'){
+        winner = 'Computer';
+    }else if(compInput === 'paper' && playerInput === 'rock'){
+        winner = 'Computer';
+    }else if(compInput === 'scissors' && playerInput === 'paper'){
+        winner = 'Computer';
+    }else{
+        winner = 'player';
+    }
+    return winner;
+}
+
+console.log(getRoundWinner());
