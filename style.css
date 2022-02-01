@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    background-color: indigo;
+    justify-content: center;
+    align-items: center;
+}
+.mainContainer {
+    display: flex;
+    padding: 50px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 75px;
+
+}
+
+.top {
+    background-color: maroon;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+    padding: 15px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.pScore, .cScore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: midnightblue;
+    width: 120px;
+    height: 30px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.rps {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: black;
+    color: darkred;
+    font-size: 20px;
+    font-weight: 600;
+    height: 30px;
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 10px;
+
+}
+
+.round {
+    background-color: maroon;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    
+    
+} 
+    
+.items {
+    background-color: maroon;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    height: 150px;
+    padding: 15px;
+    border: 3px solid black;
+    border-radius: 10px;
+}  
+#bottom {
+    background-color: maroon;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 125px;
+    width: 600px;
+    padding: 20px
+    
+} 
+
+#winner{
+    font-size: 40px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+#Rock, #Paper, #Scissors, #Lizzard, #Spock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 40px;
+    font-size: 15px;
+    padding: 20px;
+    height: 75px;
+    width: 75px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,91 +1,109 @@
 // Rock paper scissors
 
-function rpsGame (){ 
+const optionBtn = document.querySelectorAll('div.items button');
+const playerScoreBoard = document.querySelector('#pScore');
+const compuerScoreBoard = document.querySelector('#cScore');
+const currentRoundBoard = document.querySelector('#cRound');
+const anounce = document.querySelector('#bottom');
+const currentWin = document.querySelector('#winner');
 
-let compScore = 0;
+let ComputerScore = 0;
 let playerScore = 0;
-let currentRound = 0;
-let playerChoice;
-let compChoice;
+let currentRound = 1;
 
-do{
-function getCompChoice(){
-    ranNum = Math.ceil(Math.random() * 3);
+
+
+optionBtn.forEach(button => {
+    button.addEventListener('click',()=>{
+        playerChoice = button.id;
+        playRPS(playerChoice);
+        console.log(playerChoice)
+
+    })
+})
+
+
+function playRPS(playerChoice){
+
+    let compChoice;
+    winner = '';    
+
+ranNum = Math.ceil(Math.random() * 5);
     if (ranNum === 1){
-        compChoice = 'rock';
+        compChoice = 'Rock';
     }else if (ranNum === 2){
-        compChoice = 'paper';
+        compChoice = 'Paper';
+    }else if(ranNum === 3){
+        compChoice = 'Lizard';
+    }else if(ranNum === 4){
+            compChoice = 'Spock';
     }else{
-        compChoice = 'scissors';
-    }
-    return compChoice;
-}
+        compChoice = 'Scissors';
+        }
+console.log(compChoice);
 
-function getPlayerChoice(input){
-    input = prompt('Choose Rock, Paper or Scissors.');
-    playerChoice = input.toLowerCase();
-
-    return playerChoice;
-}
-playerChoice = getPlayerChoice();
-compChoice = getCompChoice();
-
-function getRoundWinner(compInput, playerInput){
-    compInput = compChoice;
-    playerInput = playerChoice;
-    winner = '';
-
-    if (compInput === playerInput){
+         
+    if (compChoice === playerChoice){
         winner = 'Tie';
-    }else if(compInput === 'rock' && playerInput === 'scissors'){
-        winner = 'Computer';
-    }else if(compInput === 'paper' && playerInput === 'rock'){
-        winner = 'Computer';
-    }else if(compInput === 'scissors' && playerInput === 'paper'){
-        winner = 'Computer';
-    }else{
-        winner = 'Player';
-    }
-    return winner;
-}
+        currentWin.textContent = `Both chose ${playerChoice}. It's a tie...`
+       
+    }else if
+    (playerChoice === 'Scissors' && compChoice === 'Paper' ||
+     playerChoice === 'Paper' && compChoice === 'Rock' ||
+     playerChoice === 'Rock' && compChoice === 'Lizard' ||
+     playerChoice === 'Lizard' && compChoice === 'Spock' ||
+     playerChoice === 'Spock' && compChoice === 'Scissors' ||
+     playerChoice === 'Scissors' && compChoice === 'Lizard' ||
+     playerChoice === 'Lizard' && compChoice === 'Paper' ||
+     playerChoice === 'Paper' && compChoice === 'Spock' ||
+     playerChoice === 'Spock' && compChoice === 'Rock' ||
+     playerChoice === 'Rock' && compChoice === 'Scissors'){
+         winner = 'Player';
+         playerScore ++;
+         playerScoreBoard.textContent = playerScore;
+         currentWin.textContent = `${playerChoice} beats ${compChoice}. You win!`;
+        
+     }else{
+         ComputerScore ++;
+         winner = 'Computer';
+         compuerScoreBoard.textContent = ComputerScore;
+        currentWin.textContent = `${compChoice} beats ${playerChoice}. You lost.`;  
+     } 
+     console.log(winner);
 
-if (getRoundWinner() === 'Computer'){
-    compScore ++;
-    currentRound ++;
-}else if (getRoundWinner() === 'Player'){
-    playerScore ++;
-    currentRound ++;
-}else {
-    currentRound ++;
-}
-
-function announcer(cRound, pScore, cScore, rWinner, pChoice, cChoice){
-    pScore = playerScore;
-    cScore = compScore;
-    cRound = currentRound;
-    rWinner = getRoundWinner();
-    pChoice = playerChoice;
-    cChoice = compChoice;
-
-    if (rWinner === 'Tie'){
-        anounce = `The current round is ${cRound}, Your/
-        score is ${pScore} and the computers score/
-        is ${cScore}. This round you chose ${pChoice} and/
-        the computer chose ${cChoice}. It is a ${rWinner},/ 
-        nobody wins this/
+     if(winner === 'Tie'){
+    
+        anounce.textContent = 
+        `The current round is round ${currentRound}, Your
+         score is ${playerScore} and the computers score
+        is ${ComputerScore}. This round you chose ${playerChoice} and
+        the computer chose ${compChoice}. It is a ${winner}, 
+        nobody wins this round.`
+        }else {
+        anounce.textContent = 
+        `The current round is round ${currentRound}, Your
+        score is ${playerScore} and the computers score
+        is ${ComputerScore}. This round you chose ${playerChoice} and
+        the computer chose ${compChoice}. ${winner} Wins this
         round.`
-    }else {
-        anounce = `The current round is ${cRound}, Your/
-        score is ${pScore} and the computers score/
-        is ${cScore}. This round you chose ${pChoice} and/
-        the computer chose ${cChoice}. ${rWinner} Wins this/
-        round.`
+        }
+
+
+    currentRoundBoard.textContent = currentRound ++;
+
+    if(playerScore === 5 || ComputerScore === 5){
+        optionBtn.forEach(button => {
+            button.removeEventListener('click')
+        })
     }
-    return anounce;
-  }
 
-console.log(announcer());
-}while(currentRound <= 5);
-}
+    }
+        
+    
 
-rpsGame();
+        
+                    
+                    
+                    
+                  
+            
