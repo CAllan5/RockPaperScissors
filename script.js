@@ -6,21 +6,36 @@ const compuerScoreBoard = document.querySelector('#cScore');
 const currentRoundBoard = document.querySelector('#cRound');
 const anounce = document.querySelector('#bottom');
 const currentWin = document.querySelector('#winner');
+const refreshBtn = document.querySelector('.rps');
 
 let ComputerScore = 0;
 let playerScore = 0;
 let currentRound = 1;
 
-
+refreshBtn.addEventListener('click', ()=> {
+    location.reload();
+});
 
 optionBtn.forEach(button => {
     button.addEventListener('click',()=>{
-        playerChoice = button.id;
-        playRPS(playerChoice);
-        console.log(playerChoice)
+        if(playerScore === 5){
+            currentWin.textContent = 'You Win! You beat the computer five times!';
+            anounce.textContent = 'Click on the title to play again';
+        }else if(ComputerScore === 5){
+            currentWin.textContent = 'Game Over! The computer beat you five times!';
+            anounce.textContent = 'Click on the title to play again';
+        }else{
+            playerChoice = button.id;
+            playRPS(playerChoice);
+            console.log(playerChoice)
+        }
+       
 
     })
 })
+
+
+    
 
 
 function playRPS(playerChoice){
@@ -91,17 +106,12 @@ console.log(compChoice);
 
     currentRoundBoard.textContent = currentRound ++;
 
-    if(playerScore === 5 || ComputerScore === 5){
-        optionBtn.forEach(button => {
-            button.removeEventListener('click')
-        })
-    }
+   
 
     }
         
     
-
-        
+    
                     
                     
                     
